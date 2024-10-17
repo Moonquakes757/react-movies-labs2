@@ -12,6 +12,7 @@ import Select from "@mui/material/Select";
 import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg'
 import { getGenres } from "../../api/tmdb-api";
 
+
 const formControl = 
   {
     margin: 1,
@@ -24,11 +25,11 @@ export default function FilterMoviesCard(props) {
     const [genres, setGenres] = useState([{ id: '0', name: "All" }])
 
     useEffect(() => {
-        getGenres().then((allGenres) => {
-          setGenres([genres[0], ...allGenres]);
-        });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [])
+      getGenres().then((allGenres) => {
+        setGenres([genres[0], ...allGenres]);
+      });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     
       const handleChange = (e, type, value) => {
         e.preventDefault()
