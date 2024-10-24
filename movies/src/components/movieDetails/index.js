@@ -60,7 +60,7 @@ const [drawerOpen, setDrawerOpen] = useState(false);
       </Paper>
 
 
-      <Paper component="ul" sx={{ ...root }}>
+      {/* <Paper component="ul" sx={{ ...root }}>
         <li>
           <Chip label="Production Countries" sx={{ ...chip }} color="primary" />
         </li>
@@ -69,7 +69,7 @@ const [drawerOpen, setDrawerOpen] = useState(false);
             <Chip label={country.name} sx={{ ...chip }} />
           </li>
         ))}
-      </Paper>
+      </Paper> */}
 
 
       <Fab
