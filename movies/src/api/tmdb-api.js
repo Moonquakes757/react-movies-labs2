@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const getMovies = () => {
   return fetch(
     `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
@@ -96,4 +98,15 @@ export const getCountries = () => {
     .then(json => json);  // return the country list
 };
 
+const API_KEY = "21a43fd5490c151e42fbca2cf14ef964";  
+const BASE_URL = "https://api.themoviedb.org/3";
+
+export const getUpcomingMovies = async () => {
+  const response = await axios.get(`${BASE_URL}/movie/upcoming`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+  return response.data;
+};
 
