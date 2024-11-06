@@ -110,3 +110,11 @@ export const getUpcomingMovies = async () => {
   return response.data;
 };
 
+export const getNowPlayingMovies = async () => {
+  const response = await axios.get(`${BASE_URL}/movie/now_playing`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+  return response.data;
+};
