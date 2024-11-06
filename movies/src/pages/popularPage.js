@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { useQuery } from "react-query";
-import { getNowPlayingMovies } from "../api/tmdb-api";
+import { getPopularMovies } from "../api/tmdb-api";
 import PageTemplate from "../components/templateMovieListPage";
 import Spinner from "../components/spinner";
-import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 import { MoviesContext } from "../contexts/moviesContext";
+import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 
-const NowPlayingPage = () => {
-  const { data, error, isLoading, isError } = useQuery("nowPlaying", getNowPlayingMovies);
+const PopularPage = () => {
+  const { data, error, isLoading, isError } = useQuery("popular", getPopularMovies);
   const { addToMustWatch } = useContext(MoviesContext);
 
   if (isLoading) {
@@ -22,7 +22,7 @@ const NowPlayingPage = () => {
 
   return (
     <PageTemplate
-      title="Now Playing Movies"
+      title="Popular Movies"
       movies={movies}
       action={(movie) => {
         return (
@@ -33,4 +33,4 @@ const NowPlayingPage = () => {
   );
 };
 
-export default NowPlayingPage;
+export default PopularPage;

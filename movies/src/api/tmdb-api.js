@@ -118,3 +118,12 @@ export const getNowPlayingMovies = async () => {
   });
   return response.data;
 };
+
+export const getPopularMovies = async () => {
+  const response = await axios.get(`${BASE_URL}/movie/popular`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+  return response.data;
+};
