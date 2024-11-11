@@ -1,4 +1,3 @@
-
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -16,15 +15,18 @@ import { Link } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import React, { useContext  } from "react";
 import { MoviesContext } from "../../contexts/moviesContext";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 
 export default function MovieCard({ movie, action }) {
-  const { favorites, addToFavorites } = useContext(MoviesContext);
+  const { favorites, addToFavorites, watchList, addToWatchList } = useContext(MoviesContext);
 
   if (favorites.find((id) => id === movie.id)) {
     movie.favorite = true;
   } else {
     movie.favorite = false
   }
+
+  const isInWatchList = watchList.includes(movie.id);
 
   const handleAddToFavorite = (e) => {
     e.preventDefault();
@@ -35,11 +37,18 @@ export default function MovieCard({ movie, action }) {
     <Card>
       <CardHeader
         avatar={
-          movie.favorite ? (
-            <Avatar sx={{ backgroundColor: 'red' }}>
-              <FavoriteIcon />
-            </Avatar>
-          ) : null
+          <>
+            {movie.favorite && (
+              <Avatar sx={{ backgroundColor: 'red', marginRight: 1 }}>
+                <FavoriteIcon />
+              </Avatar>
+            )}
+            {isInWatchList && (
+              <Avatar sx={{ backgroundColor: 'bule' }}>
+                <BookmarkIcon />
+              </Avatar>
+            )}
+            </>
         }
         title={
           <Typography variant="h5" component="p">

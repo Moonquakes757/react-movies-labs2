@@ -28,7 +28,14 @@ const UpcomingMoviesPage = () => {
         return (
             <PlaylistAddIcon
               color="primary"
-              sx={{ fontSize: 30, cursor: "pointer" }}
+              sx={{ 
+                fontSize: 30, 
+                cursor: "pointer",
+                "&:hover": {
+                  color: "red",
+                  opacity: 0.7,
+                }
+               }}
               onClick={() => addToWatchList(movie)} 
             />
           );
