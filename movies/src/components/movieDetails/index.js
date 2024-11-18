@@ -57,6 +57,7 @@ const [drawerOpen, setDrawerOpen] = useState(false);
           label={`${movie.vote_average} (${movie.vote_count}`}
         />
         <Chip label={`Released: ${movie.release_date}`} />
+        <Chip label={`Original Language: ${movie.original_language}`} />
       </Paper>
 
 
