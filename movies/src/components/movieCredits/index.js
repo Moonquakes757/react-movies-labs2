@@ -9,8 +9,9 @@ import Paper from "@mui/material/Paper";
 import { useQuery } from "react-query";
 import Spinner from "../spinner";
 import { getMovieCredits } from "../../api/tmdb-api";
+import Button from "@mui/material/Button";
 
-export default function MovieCredits({ movie }) {
+export default function MovieCredits({ movie, onClose }) {
   const { data, error, isLoading, isError } = useQuery(
     ["credits", { id: movie.id }],
     getMovieCredits
@@ -27,12 +28,30 @@ export default function MovieCredits({ movie }) {
   const cast = data.cast;
 
   return (
+    <div>
+        <Button
+            variant="contained"
+            color="secondary"
+            onClick={onClose}
+            sx={{
+                margin: "10px",
+                positon: "absolute",
+                top: "10px",
+                right: "10px",
+            }}
+        >
+            Go Back
+        </Button>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 550 }} aria-label="cast table">
         <TableHead>
           <TableRow>
-            <TableCell>Actor</TableCell>
-            <TableCell align="center">Character</TableCell>
+            <TableCell>
+            <strong>Actor</strong>
+            </TableCell>
+            <TableCell align="center">
+            <strong>Character</strong>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -47,5 +66,6 @@ export default function MovieCredits({ movie }) {
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
   );
 }

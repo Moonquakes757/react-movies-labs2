@@ -1,4 +1,4 @@
-import React, { useState, uesEffect } from "react";
+import React, { useState } from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -111,7 +111,7 @@ const [creditsDrawerOpen, setCreditsDrawerOpen] = useState(false);
         open={creditsDrawerOpen}
         onClose={() => setCreditsDrawerOpen(false)}
       >
-        <MovieCredits movie={movie} />
+        <MovieCredits movie={movie} onClose={() => setCreditsDrawerOpen(false)}/>
       </Drawer>
     </>
   );
