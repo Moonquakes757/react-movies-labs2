@@ -127,3 +127,17 @@ export const getPopularMovies = async () => {
   });
   return response.data;
 };
+
+export const getMovieCredits = async ({ queryKey }) => {
+  const [, idPart] = queryKey;
+  const { id } = idPart;
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}`
+  );
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.status_message || "Something went wrong");
+  }
+  return response.json();
+};
