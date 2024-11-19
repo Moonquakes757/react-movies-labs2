@@ -4,7 +4,7 @@ Name: Shaohua Xu
 
 ## Overview.
 
-This Movie App project is a React-based web application that allows users to browse, search, and explore movie-related information using data from the TMDB API. It is designed to provide a user-friendly interface for discovering movies, upcoming releases, now-playing films, and popular movies as well as managing personal favorites and watch lists. Also, it includes movie details in each movie card: overview, genres, run time, average vote, released date, original language, production countries, etc. It also has a review function to help users see the reviews from different authors and a filter to help users locate a certain movie quickly by typing its name or selecting the genre.
+This Movie App project is a React-based web application that allows users to browse, search, and explore movie-related information using data from the TMDB API. It is designed to provide a user-friendly interface for discovering movies, upcoming releases, now-playing films, and popular movies as well as managing personal favorites and watch lists. 
 
 ### Features.
  
@@ -15,6 +15,7 @@ This Movie App project is a React-based web application that allows users to bro
 + Changed icon in upcoming page to a button that can be clicked and the movie will be added to the watch list page.
 + Bookmarks added to the movie card in upcoming page, if users click on the button, a bookmark will show on top of the movie card to tell users that the movie is added to the watch list page.
 + Movies added to watch list page can be deleted by clicking on the delete button in the movie card in watch list page, and it will be removed.
++ A cast button in movie details page where shows the credits drawer, similar to movie reviews drawer. Also a Go Back button in the credits drawer to close the page and navigate back to the movie details page.
 
 ## Setup requirements.
 
@@ -68,12 +69,11 @@ This setup will allow you to run and develop the project locally!
 
 ## API endpoints.
 
-[ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
-
 + Production countries - /configuration/countries
 + Upcoming movies - /movie/upcoming
 + Now playing movies - /movie/now_playing
 + Popular movies - /movie/popular
++ Credits - /movie/id/credits
 
 
 ## Routing.
@@ -82,6 +82,7 @@ This setup will allow you to run and develop the project locally!
 + /movies/now-playing - displays movies that are currently playing in theaters.
 + /movies/popular - shows a list of popular movies based on TMDB's popular criteria.
 + /movies/watchlist - displays a list of movies added to the user's watchlist.
++ /movieDetails/cast - shows the movie credits drawer.
 
 ## Independent learning (If relevant).
 
