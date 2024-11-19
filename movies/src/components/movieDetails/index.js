@@ -9,6 +9,8 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews";
+import MovieCredits from "../movieCredits";
+
 
 const root = {
     display: "flex",
@@ -22,6 +24,7 @@ const chip = { margin: 0.5 };
 
 const MovieDetails = ({ movie }) => {
 const [drawerOpen, setDrawerOpen] = useState(false);
+const [creditsDrawerOpen, setCreditsDrawerOpen] = useState(false);
 
   return (
     <>
@@ -89,7 +92,28 @@ const [drawerOpen, setDrawerOpen] = useState(false);
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
       </Drawer>
-      </>
+
+      <Fab
+        color="primary"
+        variant="extended"
+        onClick={() => setCreditsDrawerOpen(true)}
+        sx={{
+          position: "fixed",
+          bottom: "5em",
+          right: "1em",
+        }}
+      >
+        <NavigationIcon />
+        Cast
+      </Fab>
+      <Drawer
+        anchor="top"
+        open={creditsDrawerOpen}
+        onClose={() => setCreditsDrawerOpen(false)}
+      >
+        <MovieCredits movie={movie} />
+      </Drawer>
+    </>
   );
 };
 export default MovieDetails ;
