@@ -10,7 +10,8 @@ import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews";
 import MovieCredits from "../movieCredits";
-
+import RecommendationsList from "../recommendationsList";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 
 const root = {
     display: "flex",
@@ -25,6 +26,7 @@ const chip = { margin: 0.5 };
 const MovieDetails = ({ movie }) => {
 const [drawerOpen, setDrawerOpen] = useState(false);
 const [creditsDrawerOpen, setCreditsDrawerOpen] = useState(false);
+const [recommendationsDrawerOpen, setRecommendationsDrawerOpen] = useState(false);
 
   return (
     <>
@@ -75,7 +77,7 @@ const [creditsDrawerOpen, setCreditsDrawerOpen] = useState(false);
         ))}
       </Paper>
 
-
+    
       <Fab
         color="secondary"
         variant="extended"
@@ -113,6 +115,28 @@ const [creditsDrawerOpen, setCreditsDrawerOpen] = useState(false);
       >
         <MovieCredits movie={movie} onClose={() => setCreditsDrawerOpen(false)}/>
       </Drawer>
+
+      <Fab
+        color="success"
+        variant="extended"
+        onClick={() => setRecommendationsDrawerOpen(true)}
+        sx={{
+          position: "fixed",
+          bottom: "9em", 
+          right: "1em",
+        }}
+      >
+        <ThumbUpIcon />
+        Recommend
+      </Fab>
+      <Drawer
+        anchor="top"
+        open={recommendationsDrawerOpen}
+        onClose={() => setRecommendationsDrawerOpen(false)}
+      >
+        <RecommendationsList movie={movie} /> 
+      </Drawer>
+
     </>
   );
 };
