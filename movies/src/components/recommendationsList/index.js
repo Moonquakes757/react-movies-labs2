@@ -10,8 +10,9 @@ import { Link } from "react-router-dom";
 import { getMovieRecommendations } from "../../api/tmdb-api";
 import Spinner from "../spinner";
 import { useQuery } from "react-query";
+import Button from "@mui/material/Button";
 
-export default function RecommendationsList({ movie }) {
+export default function RecommendationsList({ movie, onClose }) {
 
   const { data, error, isLoading, isError } = useQuery(
     ["recommendations", { id: movie.id }],
@@ -31,6 +32,20 @@ export default function RecommendationsList({ movie }) {
   }
 
   return (
+    <div>
+        <Button
+            variant="contained"
+            color="secondary"
+            onClick={onClose}
+            sx={{
+                margin:"10px",
+                position:"absolute",
+                top:"10px",
+                right:"10px",
+            }}
+            >
+                Go Back
+            </Button>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 550 }} aria-label="recommendations table">
         <TableHead>
@@ -59,5 +74,6 @@ export default function RecommendationsList({ movie }) {
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
   );
 }

@@ -14,19 +14,19 @@ import RecommendationsList from "../recommendationsList";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 
 const root = {
-    display: "flex",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    listStyle: "none",
-    padding: 1.5,
-    margin: 0,
+  display: "flex",
+  justifyContent: "center",
+  flexWrap: "wrap",
+  listStyle: "none",
+  padding: 1.5,
+  margin: 0,
 };
 const chip = { margin: 0.5 };
 
 const MovieDetails = ({ movie }) => {
-const [drawerOpen, setDrawerOpen] = useState(false);
-const [creditsDrawerOpen, setCreditsDrawerOpen] = useState(false);
-const [recommendationsDrawerOpen, setRecommendationsDrawerOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [creditsDrawerOpen, setCreditsDrawerOpen] = useState(false);
+  const [recommendationsDrawerOpen, setRecommendationsDrawerOpen] = useState(false);
 
   return (
     <>
@@ -38,20 +38,20 @@ const [recommendationsDrawerOpen, setRecommendationsDrawerOpen] = useState(false
         {movie.overview}
       </Typography>
 
-      <Paper 
-        component="ul" 
-        sx={{...root}}
+      <Paper
+        component="ul"
+        sx={{ ...root }}
       >
         <li>
-          <Chip label="Genres" sx={{...chip}} color="primary" />
+          <Chip label="Genres" sx={{ ...chip }} color="primary" />
         </li>
         {movie.genres.map((g) => (
           <li key={g.name}>
-            <Chip label={g.name} sx={{...chip}} />
+            <Chip label={g.name} sx={{ ...chip }} />
           </li>
         ))}
       </Paper>
-      <Paper component="ul" sx={{...root}}>
+      <Paper component="ul" sx={{ ...root }}>
         <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
         <Chip
           icon={<MonetizationIcon />}
@@ -77,11 +77,11 @@ const [recommendationsDrawerOpen, setRecommendationsDrawerOpen] = useState(false
         ))}
       </Paper>
 
-    
+
       <Fab
         color="secondary"
         variant="extended"
-        onClick={() =>setDrawerOpen(true)}
+        onClick={() => setDrawerOpen(true)}
         sx={{
           position: 'fixed',
           bottom: '1em',
@@ -113,7 +113,7 @@ const [recommendationsDrawerOpen, setRecommendationsDrawerOpen] = useState(false
         open={creditsDrawerOpen}
         onClose={() => setCreditsDrawerOpen(false)}
       >
-        <MovieCredits movie={movie} onClose={() => setCreditsDrawerOpen(false)}/>
+        <MovieCredits movie={movie} onClose={() => setCreditsDrawerOpen(false)} />
       </Drawer>
 
       <Fab
@@ -122,7 +122,7 @@ const [recommendationsDrawerOpen, setRecommendationsDrawerOpen] = useState(false
         onClick={() => setRecommendationsDrawerOpen(true)}
         sx={{
           position: "fixed",
-          bottom: "9em", 
+          bottom: "9em",
           right: "1em",
         }}
       >
@@ -134,10 +134,10 @@ const [recommendationsDrawerOpen, setRecommendationsDrawerOpen] = useState(false
         open={recommendationsDrawerOpen}
         onClose={() => setRecommendationsDrawerOpen(false)}
       >
-        <RecommendationsList movie={movie} /> 
+        <RecommendationsList movie={movie} onClose={() => setRecommendationsDrawerOpen(false)} />
       </Drawer>
 
     </>
   );
 };
-export default MovieDetails ;
+export default MovieDetails;
