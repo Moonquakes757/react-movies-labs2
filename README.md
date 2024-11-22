@@ -17,6 +17,7 @@ This Movie App project is a React-based web application that allows users to bro
 + Movies added to watch list page can be deleted by clicking on the delete button in the movie card in watch list page, and it will be removed.
 + A cast button in movie details page where shows the credits drawer, similar to movie reviews drawer. Also a Go Back button in the credits drawer to close the page and navigate back to the movie details page.
 + A recommend button in movie details page where shows the recommendations drawer. It can navigate to the correspond movie by clicking the view link. Also a Go Back button is added to close the page and navigate back to the movie details page.
++ Added a new effect on the movie card to make it zoom in when hovering over the mouse.
 
 ## Setup requirements.
 
