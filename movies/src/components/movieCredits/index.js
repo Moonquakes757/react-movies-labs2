@@ -10,6 +10,7 @@ import { useQuery } from "react-query";
 import Spinner from "../spinner";
 import { getMovieCredits } from "../../api/tmdb-api";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 export default function MovieCredits({ movie, onClose }) {
   const { data, error, isLoading, isError } = useQuery(
@@ -58,7 +59,13 @@ export default function MovieCredits({ movie, onClose }) {
           {cast.map((actor) => (
             <TableRow key={actor.cast_id}>
               <TableCell component="th" scope="row">
-                {actor.name}
+                <Link
+                  to={`/actors/${actor.id}`}
+                  style={{ textDecoration: "none", color: "blue" }}
+                >
+                  {actor.name}
+                </Link>
+                
               </TableCell>
               <TableCell align="center">{actor.character}</TableCell>
             </TableRow>

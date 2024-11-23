@@ -160,3 +160,16 @@ export const getMovieRecommendations = ({ queryKey }) => {
       throw error;
     });
 };
+
+export const getActorDetails = async ({ queryKey }) => {
+  const [, { id }] = queryKey;
+  const response = await fetch(
+    `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+  );
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.status_message || "Something went wrong");
+  }
+
+  return response.json();
+};
