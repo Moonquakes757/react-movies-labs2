@@ -2,6 +2,8 @@
 
 Name: Shaohua Xu
 
+Video link: https://www.youtube.com/watch?v=4IAvrqT-bXI
+
 ## Overview.
 
 This Movie App project is a React-based web application that allows users to browse, search, and explore movie-related information using data from the TMDB API. It is designed to provide a user-friendly interface for discovering movies, upcoming releases, now-playing films, and popular movies as well as managing personal favorites and watch lists. 
@@ -18,6 +20,7 @@ This Movie App project is a React-based web application that allows users to bro
 + A cast button in movie details page where shows the credits drawer, similar to movie reviews drawer. Also a Go Back button in the credits drawer to close the page and navigate back to the movie details page.
 + A recommend button in movie details page where shows the recommendations drawer. It can navigate to the correspond movie by clicking the view link. Also a Go Back button is added to close the page and navigate back to the movie details page.
 + Added a new effect on the movie card to make it zoom in when hovering over the mouse.
++ A new actor details component is added. It is linked to each actor's name in the cast drawer and it shows actor's name, birthday, biography and photo. Also a go back button is added and it will navigate back to the correspond movie details page.
 
 ## Setup requirements.
 
@@ -77,6 +80,7 @@ This setup will allow you to run and develop the project locally!
 + Popular movies - /movie/popular
 + Credits - /movie/id/credits
 + Recommendations - /movie/id/recommendations
++ Actor details - /person/id
 
 
 ## Routing.
@@ -85,10 +89,7 @@ This setup will allow you to run and develop the project locally!
 + /movies/now-playing - displays movies that are currently playing in theaters.
 + /movies/popular - shows a list of popular movies based on TMDB's popular criteria.
 + /movies/watchlist - displays a list of movies added to the user's watchlist.
-+ /movieDetails/cast - shows the movie credits drawer.
-+ /movieDetails/recommendations - shows the recommended movies drawer.
-+ cast/movieDetails - go back to the movie details page.
-+ recommendationsList/movieDetails - go back to the movie details page.
++ /actors/:id - lists actors details
 
 ## Independent learning (If relevant).
 
